@@ -1,11 +1,11 @@
 // <-- problem 1 -->
-const filterEvenNumbers = (arr: number[]) => {
+const filterEvenNumbers = (arr: number[]): number[] => {
     const result = arr.filter(num => {
         if (num % 2 === 0) {
             return num;
         }
     })
-    console.log(result);
+    return result;
 }
 
 filterEvenNumbers([1, 2, 3, 4, 5, 6]);
@@ -14,7 +14,7 @@ filterEvenNumbers([1, 2, 3, 4, 5, 6]);
 // <-- problem 2 -->
 const reverseString = (value: string) => {
     const result = value.split("").reverse().join("");
-    console.log(result);
+    return result;
 }
 
 reverseString("typescript");
@@ -22,12 +22,12 @@ reverseString("typescript");
 // <-- problem 3 -->
 type StringOrNumber = string | number;
 
-const checkType = (value: StringOrNumber) => {
+const checkType = (value: StringOrNumber): string | undefined => {
     if (typeof value === "number") {
-        console.log(`Number`);
+        return `Number`;
     }
     else if (typeof value === "string") {
-        console.log(`String`);
+        return `String`;
     }
 }
 
@@ -43,7 +43,7 @@ type mustInfo = {
 }
 
 const getProperty = <T extends mustInfo>(userInfo: T, key: keyof T) => {
-    console.log(`${userInfo[key]}`);
+    return `${userInfo[key]}`;
 }
 const user = { id: 1, name: "John Doe", age: 21 };
 getProperty(user, "name");
@@ -66,7 +66,7 @@ const toggleReadStatus = (obj: Book): BookStat => {
     }
 }
 const myBook = { title: "TypeScript Guide", author: "Jane Doe", publishedYear: 2024 };
-console.log(toggleReadStatus(myBook));
+toggleReadStatus(myBook);
 
 // <-- problem 6 -->
 class Person {
@@ -84,20 +84,21 @@ class Student extends Person {
         super(name, age);
         this.grade = grade;
     }
-    getDetails() {
-        console.log(`Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`);
+    getDetails(): string {
+        const result = `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`;
+        return result;
     }
 }
 const student = new Student("Alice", 20, "A");
 student.getDetails();
 
 // <-- problem 7 -->
-const getIntersection = (arr1: number[], arr2: number[]) => {
+const getIntersection = (arr1: number[], arr2: number[]): number[] => {
     const result = arr1.filter(num => {
         if (arr2.includes(num)) {
             return num;
         }
     })
-    console.log(result);
+    return result;
 }
 getIntersection([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
