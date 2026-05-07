@@ -19,4 +19,21 @@ const reverseString = (value: string) => {
 
 reverseString("typescript");
 
+// <-- problem 3 -->
+type StringOrNumber = string | number;
+
+const checkType = (value: StringOrNumber)=>{
+    if (typeof value === "number") {
+        console.log(`"Number"`);
+    }
+    else if (typeof value === "string") {
+        console.log(`"String"`);
+    }
+}
+
+checkType("Hello");
+checkType(42);
+
+
+// <-- problem 4 -->
 
