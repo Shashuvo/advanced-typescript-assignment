@@ -90,3 +90,14 @@ class Student extends Person {
 }
 const student = new Student("Alice", 20, "A");
 student.getDetails();
+
+// <-- problem 7 -->
+const getIntersection = (arr1: number[], arr2: number[]) => {
+    const result = arr1.filter(num => {
+        if (arr2.includes(num)) {
+            return num;
+        }
+    })
+    console.log(result);
+}
+getIntersection([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
