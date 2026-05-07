@@ -47,3 +47,23 @@ const getProperty = <T extends mustInfo>(userInfo: T, key: keyof T) => {
 }
 const user = { id: 1, name: "John Doe", age: 21 };
 getProperty(user, "name");
+
+// <-- problem 5 -->
+interface Book {
+    title: string;
+    author: string;
+    publishedYear: number;
+}
+
+interface BookStat {
+    isRead: boolean;
+}
+
+const toggleReadStatus = (obj: Book): BookStat => {
+    return {
+        ...obj,
+        isRead: true
+    }
+}
+const myBook = { title: "TypeScript Guide", author: "Jane Doe", publishedYear: 2024 };
+console.log(toggleReadStatus(myBook));
