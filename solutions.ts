@@ -22,7 +22,7 @@ reverseString("typescript");
 // <-- problem 3 -->
 type StringOrNumber = string | number;
 
-const checkType = (value: StringOrNumber)=>{
+const checkType = (value: StringOrNumber) => {
     if (typeof value === "number") {
         console.log(`"Number"`);
     }
@@ -36,4 +36,14 @@ checkType(42);
 
 
 // <-- problem 4 -->
+type mustInfo = {
+    id: number;
+    name: string;
+    age: number;
+}
 
+const getProperty = <T extends mustInfo>(userInfo: T, key: keyof T) => {
+    console.log(`"${userInfo[key]}"`);
+}
+const user = { id: 1, name: "John Doe", age: 21 };
+getProperty(user, "name");
